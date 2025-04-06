@@ -1,0 +1,53 @@
+.title_h1 {
+  width: 100%;
+  text-align: left;
+  font-size: 25px;
+  margin: 0;
+}
+
+.title {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 10px;
+
+  * {
+    margin: 0;
+  }
+
+  p {
+    color: #a0a09f;
+    font-size: 18px;
+  }
+}
+
+.tap_lvl {
+  width: 100%;
+  height: 150px;
+  background-color: #1a1a1a;
+  opacity: 0.9;
+  border-radius: 25px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1,
+  span {
+    margin: 0;
+  }
+}
+
+.improves {
+  display: flex;
+  justify-content: space-between;
+}
+
+.improves > * {
+  flex: 1;
+  margin: 0 5px;
+}
+
+.level_box {
+  min-width: 160px;
+}

@@ -1,0 +1,203 @@
+.BottomMenu {
+  margin-top: 150px;
+  background: #1a1a1a;
+  width: 96%;
+  height: 100px;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  position: fixed;
+  bottom: 10px;
+  backdrop-filter: blur(20px);
+  box-shadow: 3px 5px 50px rgba(255, 255, 255, 0.22);
+  padding-top: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.progress__info {
+  font-family: 'Inter';
+  color: white;
+  align-items: center;
+}
+
+.s:not(:first-child) {
+  fill: rgb(142, 142, 142);
+  width: 27px;
+  height: 27px;
+  margin-left: 25px;
+}
+
+.s:first-child {
+  width: 27px;
+  height: 27px;
+}
+
+.home {
+  fill: white !important;
+}
+
+.EnergyComponent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 96%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.energy_bar {
+  align-items: center;
+  width: 220px;
+  height: 20px;
+  background-color: #212121;
+  border-radius: 20px;
+  margin-top: 5px;
+}
+
+.progress__info {
+  display: flex;
+}
+
+.energy_bar__progress {
+  width: 70%;
+  height: 100%;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.bottomMenu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #1a1a1a;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px 20px 0 0;
+  backdrop-filter: blur(20px);
+  box-shadow: 3px 5px 50px rgba(255, 255, 255, 0.22);
+  z-index: 10000;
+}
+
+.energyBar {
+  background-color: #444;
+  width: 90%;
+  padding: 5px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.energyIcon {
+  margin-right: 5px;
+}
+
+.menuOptions {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  color: #ccc;
+}
+
+.menuItem {
+  text-align: center;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menuItem .s {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 3px;
+}
+
+.menuItem span {
+  font-size: 10px;
+}
+
+.bottomMenu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #1a1a1a;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.energyBar {
+  background-color: #444;
+  width: 90%;
+  padding: 5px;
+  border-radius: 20px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.energyFill {
+  background-color: white;
+  height: 100%;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.energyText {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-shadow:
+  -0.6px -0.6px 0 black,  
+  0.6px -0.6px 0 black,
+  -0.6px 0.6px 0 black,
+  0.6px 0.6px 0 black;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.iconWithStroke {
+  fill: white;
+  stroke: black;
+  stroke-width: 0.6px; 
+  stroke-linejoin: round; 
+}
+
+
+.menuOptions {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  color: #ccc;
+  margin-top: 10px;
+}
+
+.menuItem {
+  text-align: center;
+  font-size: 12px;
+}
+
+.menuItem .s {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 3px;
+}
+
+.menuItem span {
+  font-size: 10px;
+}

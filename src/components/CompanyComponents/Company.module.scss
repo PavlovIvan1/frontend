@@ -1,0 +1,29 @@
+.company__uppanel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .company__name {
+    align-items: center;
+    display: flex;
+
+    img {
+      width: 30px;
+      border-radius: 10px;
+    }
+  }
+}
+
+.company {
+  border: 1px solid #1a1a1a;
+  border-radius: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+.company:hover {
+  border: 1px solid #4b4b4b;
+  transition: 0.5s;
+  cursor: pointer;
+}
