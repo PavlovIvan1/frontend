@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { Loading } from '../../Loading';
-import { fetchGetRefferals } from '../../services/requests';
-import styles from './Boost.module.scss';
+import { useEffect, useState } from 'react'
+import { Loading } from '../../Loading'
+import { fetchGetRefferals } from '../../services/requests'
+import styles from './Boost.module.scss'
 
 export function Boost_comp() {
   const [loading, setLoading] = useState(true);

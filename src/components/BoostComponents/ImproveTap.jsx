@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Loading } from '../../Loading.jsx';
 import {
-  fetchBaseUserData,
-  fetchCheckTapStars,
-  fetchGetPrice,
-  fetchUpdateTap,
-  fetchUpdateTapStars,
+    fetchBaseUserData,
+    fetchCheckTapStars,
+    fetchGetPrice,
+    fetchUpdateTap,
+    fetchUpdateTapStars,
 } from '../../services/requests.js';
-import styles from './boost.module.scss';
+import styles from './Boost.module.scss';
 
 import 'sweetalert2/src/sweetalert2.scss';
 import { showSuccessToast } from '../../utils/toastUtils.js';

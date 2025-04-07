@@ -8,7 +8,7 @@ import { ImproveEnergy } from '../../components/BoostComponents/ImproveEnergy.js
 import { BottomMenuWithoutEnergy } from '../../components/BottomMenu/BM_wit_energy.jsx';
 
 import { useState } from 'react';
-import styles from './boost.module.scss';
+import styles from './Boost.module.scss';
 
 export function Boost() {
   const [priceData, setPriceData] = useState({
