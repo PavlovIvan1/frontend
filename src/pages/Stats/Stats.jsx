@@ -3,7 +3,7 @@ import { BottomMenuWithoutEnergy } from '../../components/BottomMenu/BM_wit_ener
 import { Obj } from '../../components/ObjComponents/Obj.jsx'
 import { Title } from '../../components/common/Title.jsx'
 import { fetchSocNetData, fetchStatData } from '../../services/requests.js'
-import styles from '../frens/frens.module.scss'
+import styles from '../Frens/frens.module.scss'
 
 import { Loading } from '../../Loading.jsx'
 

@@ -1,5 +1,4 @@
-import styles from '../pages/frens/frens.module.scss';
-import reapst from './reapblocks.module.css';
+import styles from '../pages/Frens/frens.module.scss'
 
 export function SocialTasks({ description, title, img }) {
   return (
