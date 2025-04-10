@@ -1,6 +1,6 @@
 import Modal from '@mui/material/Modal'
 import * as React from 'react'
-import { FaStar } from 'react-icons/fa6';
+import { FaStar } from 'react-icons/fa6'
 
 const style = {
   position: 'absolute',
@@ -35,47 +35,25 @@ export function BasicModal({
 
   return (
     <div style={width}>
-      {text == 'Boost' ? (
-        <button
-          className="button-hover-s button-gradient"
-          onClick={handleOpen}
-          style={{
-            color: 'black',
-            border: 'none',
-            borderRadius: '.75rem',
-            fontWeight: '590',
-            fontSize: '17px',
-            width: '100%',
-            minHeight: '50px',
-            justifyContent: 'center',
-            alignItems: 'center',
-            display: 'flex',
-            letterSpacing: '1.5px',
-          }}
-        >
-          {text}
-        </button>
-      ) : (
-        <button
-          className="button-hover-s  button-gradient"
-          onClick={handleOpen}
-          style={{
-            color: 'black',
-            border: 'none',
-            borderRadius: '.75rem',
-            fontWeight: '590',
-            fontSize: '15px',
-            width: '100%',
-            minHeight: '40px',
-            justifyContent: 'center',
-            alignItems: 'center',
-            display: 'flex',
-            letterSpacing: '1.5px',
-          }}
-        >
-          {text}
-        </button>
-      )}
+      <button
+        className="button-hover-s button-gradient"
+        onClick={handleOpen}
+        style={{
+          color: 'black',
+          border: 'none',
+          borderRadius: '.75rem',
+          fontWeight: '590',
+          fontSize: text === 'Boost' ? '17px' : '15px',
+          width: '100%',
+          minHeight: text === 'Boost' ? '50px' : '40px',
+          justifyContent: 'center',
+          alignItems: 'center',
+          display: 'flex',
+          letterSpacing: '1.5px',
+        }}
+      >
+        {text}
+      </button>
       <Modal open={open} onClose={handleClose}>
         <div style={style}>
           <button
@@ -95,7 +73,7 @@ export function BasicModal({
               letterSpacing: '1.5px',
             }}
           >
-            {textStars} <FaStar fill={'rgb(250, 197, 70)'} 
+            {textStars} <FaStar fill={'rgb(250, 197, 70)'} />
           </button>
           <button
             className="button-hover-s button-gradient"
