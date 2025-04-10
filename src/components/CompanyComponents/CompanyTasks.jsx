@@ -1,5 +1,5 @@
-import { useLocation, useNavigate } from 'react-router';
-import styles from './Company.module.scss';
+import { useLocation, useNavigate } from 'react-router'
+import styles from './Company.module.scss'
 
 export function CompanyTasks({
   company_name,
@@ -40,7 +40,7 @@ export function CompanyTasks({
           style={{
             width: '100%',
             borderRadius: '20px',
-            height: '250px',
+            height: '200px',
             objectFit: 'cover',
           }}
         />
@@ -49,7 +49,7 @@ export function CompanyTasks({
             <img src={company_logo} alt="" />
             <span style={{ marginLeft: '5px' }}>{company_name}</span>
           </div>
-          <span style={{ color: 'lime', fontWeight: '600' }}>
+          <span style={{ color: 'white', fontWeight: '600' }}>
             {' '}
             Earned: {reward} ozzo
           </span>

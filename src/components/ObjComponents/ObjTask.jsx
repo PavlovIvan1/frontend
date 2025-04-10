@@ -1,9 +1,9 @@
-import { useNavigate } from 'react-router-dom';
-import styles from './Obj.module.scss';
+import { useNavigate } from 'react-router-dom'
+import styles from './Obj.module.scss'
 
-import 'sweetalert2/src/sweetalert2.scss';
-import { fetchMarkAsDone } from '../../services/requests';
-import { showSuccessToast } from '../../utils/toastUtils';
+import 'sweetalert2/src/sweetalert2.scss'
+import { fetchMarkAsDone } from '../../services/requests'
+import { showSuccessToast } from '../../utils/toastUtils'
 
 export function ObjTask({
   img,
@@ -62,6 +62,9 @@ export function ObjTask({
           height: '30px',
           borderRadius: '10px',
           textAlign: 'center',
+          display: 'flex', 
+          justifyContent: 'center',
+          alignItems: 'center'
         }}
       >
         Check
