@@ -58,7 +58,7 @@ export function ObjTask({
         onClick={handleClaimClick}
         className="button-gradient"
         style={{
-          width: '70px',
+          width: '85px',
           height: '30px',
           borderRadius: '10px',
           textAlign: 'center',

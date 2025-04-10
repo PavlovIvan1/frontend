@@ -211,7 +211,7 @@ export function SquadOpen() {
           onClick={leave_squad}
         />
       </div>
-      <div className="SquadOpen" style={{ marginTop: '-120px' }}>
+      <div className="SquadOpen" style={{ marginTop: '-100px' }}>
         <div>
           <img src={data.photo} alt="" className="person" />
           <h3>{data.name}</h3>
@@ -238,7 +238,7 @@ export function SquadOpen() {
           priceStars={priceData.stars}
           width={{ width: '100%' }}
         />
-        <button className={styles.button_gradient} onClick={joinSquad} style={{marginBottom: '20px'}}>
+        <button className={styles.button_gradient} onClick={joinSquad} style={{marginBottom: '10px'}}>
           Join
         </button>
       </div>
