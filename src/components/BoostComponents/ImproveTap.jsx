@@ -1,23 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { Loading } from '../../Loading.jsx';
+import React, { useEffect, useState } from 'react'
+import { Loading } from '../../Loading.jsx'
 import {
-    fetchBaseUserData,
-    fetchCheckTapStars,
-    fetchGetPrice,
-    fetchUpdateTap,
-    fetchUpdateTapStars,
-} from '../../services/requests.js';
-import styles from './Boost.module.scss';
+  fetchBaseUserData,
+  fetchCheckTapStars,
+  fetchGetPrice,
+  fetchUpdateTap,
+  fetchUpdateTapStars,
+} from '../../services/requests.js'
+import styles from './Boost.module.scss'
 
-import 'sweetalert2/src/sweetalert2.scss';
-import { showSuccessToast } from '../../utils/toastUtils.js';
-import { BasicModal } from '../common/Modal.jsx';
+import 'sweetalert2/src/sweetalert2.scss'
+import { showSuccessToast } from '../../utils/toastUtils.js'
+import { BasicModal } from '../common/Modal.jsx'
 
 export function ImproveTap({ setTapPrice }) {
   const [userBase, setUserBase] = useState(null);
   const [loading, setLoading] = useState(true);
   const [updatedTapLevel, setUpdatedTapLevel] = useState(1);
   const [priceData, setPriceData] = useState(0);
+  const [priceDataStars, setPriceDataStars] = useState(0);
 
   const getTapStars = async (value) => {
     try {
@@ -80,6 +81,7 @@ export function ImproveTap({ setTapPrice }) {
       for (const item of result) {
         if (item.ticker && item.ticker === 'update_tap') {
           setPriceData(item.coins);
+          setPriceDataStars(item.stars)
           setTapPrice(item.coins);
           return item;
         }
@@ -133,8 +135,8 @@ export function ImproveTap({ setTapPrice }) {
       </div>
       <BasicModal
         text={'Buy'}
-        textCoins={`Buy for ${priceData} `}
-        textStars={'Buy'}
+        textCoins={`${priceData} Ozzo 🪙`}
+        textStars={`${priceDataStars} Stars`}
         onClickCoins={() => {
           getPrice();
           fetchUpdTap(1);

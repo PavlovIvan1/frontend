@@ -69,7 +69,7 @@ export function Stats() {
         <div className={styles.Fr_stat}>
           <div className={styles.Fr_rewards}>
             <span className={styles.big}>
-              {dataTotal ? dataTotal.total_coins : 0}
+              {dataTotal.toLocaleString('en-US') ? dataTotal.total_coins.toLocaleString('en-US') : 0}
             </span>
             <span className={styles.sm}>/ coins</span>
           </div>
@@ -78,7 +78,7 @@ export function Stats() {
         <div className={styles.Fr_stat}>
           <div className={styles.Fr_rewards}>
             <span className={styles.big}>
-              {dataTotal ? dataTotal.total_users : 0}
+              {dataTotal.toLocaleString('en-US') ? dataTotal.total_users.toLocaleString('en-US') : 0}
             </span>
             <span className={styles.sm}>/ users</span>
           </div>

@@ -1,7 +1,6 @@
-import Modal from '@mui/material/Modal';
-import * as React from 'react';
-import { FaStar } from 'react-icons/fa';
-import { PiCoinsFill } from 'react-icons/pi';
+import Modal from '@mui/material/Modal'
+import * as React from 'react'
+import { FaStar } from 'react-icons/fa6';
 
 const style = {
   position: 'absolute',
@@ -96,7 +95,7 @@ export function BasicModal({
               letterSpacing: '1.5px',
             }}
           >
-            {textStars} for {priceStars} <FaStar fill={'rgb(250, 197, 70)'} />
+            {textStars} <FaStar fill={'rgb(250, 197, 70)'} 
           </button>
           <button
             className="button-hover-s button-gradient"
@@ -115,8 +114,7 @@ export function BasicModal({
               letterSpacing: '1.5px',
             }}
           >
-            {textCoins} for {priceCoins}{' '}
-            <PiCoinsFill fill={'rgb(250, 197, 70)'} />
+            {textCoins}
           </button>
         </div>
       </Modal>

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Loading } from '../../Loading.jsx'
 import {
-    fetchCheckEnergyStars,
-    fetchGetPrice,
-    fetchImproveEnergy,
-    fetchUpdateEnergyStars,
-    fetychGetTaP,
+  fetchCheckEnergyStars,
+  fetchGetPrice,
+  fetchImproveEnergy,
+  fetchUpdateEnergyStars,
+  fetychGetTaP,
 } from '../../services/requests.js'
 import styles from './Boost.module.scss'
 
@@ -54,7 +54,7 @@ export function ImproveEnergy({ setEnergyPrice }) {
         window.Telegram.WebApp.openInvoice(pay_link);
 
         setTimeout(() => {
-          if (checkEnStars(100, payload_token).is_paid == false) {
+          if (checkEnStars(500, payload_token).is_paid == false) {
             showErrorToast('Fail!');
           } else {
             showSuccessToast('Оплачен');
@@ -112,7 +112,7 @@ export function ImproveEnergy({ setEnergyPrice }) {
       const result = await fetchImproveEnergy(energy);
       result;
       showSuccessToast(result.message || 'Successful');
-      setUpdatedTapLevel((prev) => (prev += 100));
+      setUpdatedTapLevel((prev) => (prev += 500));
     } catch (err) {
       console.error(err);
     }
@@ -137,9 +137,9 @@ export function ImproveEnergy({ setEnergyPrice }) {
         textStars={'Buy'}
         onClickCoins={() => {
           getPrice();
-          fetchUpdEn(100);
+          fetchUpdEn(500);
         }}
-        onClickStars={() => getEnStars(100)}
+        onClickStars={() => getEnStars(500)}
       />
     </div>
   );
