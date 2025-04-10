@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import { URL } from '../../config/config.js';
-import { Loading } from '../../Loading.jsx';
-import { fetchSkinsOnSaleData } from '../../services/requests.js';
-import { Title } from '../common/Title.jsx';
-import { Obj } from '../ObjComponents/Obj.jsx';
+import { useEffect, useState } from 'react'
+import { URL } from '../../config/config.js'
+import { Loading } from '../../Loading.jsx'
+import { fetchSkinsOnSaleData } from '../../services/requests.js'
+import { Title } from '../common/Title.jsx'
+import { Obj } from '../ObjComponents/Obj.jsx'
 
 export function Skins({ title, description }) {
   const [loading, setLoading] = useState(true);

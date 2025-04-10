@@ -1,16 +1,16 @@
-import { useNavigate } from 'react-router-dom';
-import styles from './Obj.module.scss';
+import { useNavigate } from 'react-router-dom'
+import styles from './Obj.module.scss'
 
-import { useState } from 'react';
-import 'sweetalert2/src/sweetalert2.scss';
+import { useState } from 'react'
+import 'sweetalert2/src/sweetalert2.scss'
 import {
   fetchBuySkin,
   fetchBuySkinStars,
   fetchSelectSkin,
   fetchTokenStatus,
-} from '../../services/requests';
-import { showErrorToast, showSuccessToast } from '../../utils/toastUtils';
-import { BasicModal } from '../common/Modal';
+} from '../../services/requests'
+import { showErrorToast, showSuccessToast } from '../../utils/toastUtils'
+import { BasicModal } from '../common/Modal'
 
 let stylesObjWin = {
   border: 'solid 1px rgba(133, 255, 121, 0.65)',
