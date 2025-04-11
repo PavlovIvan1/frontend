@@ -18,6 +18,7 @@ export function ImproveEnergy({ setEnergyPrice }) {
   const [updatedTapLevel, setUpdatedTapLevel] = useState(100);
   const [priceData, setPriceData] = useState(0);
 
+  
   const getEnStars = async (value) => {
     try {
       const result = await fetchUpdateEnergyStars(value);
