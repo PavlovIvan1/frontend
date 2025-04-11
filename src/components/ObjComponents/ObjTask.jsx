@@ -20,7 +20,7 @@ export function ObjTask({
 
   const handleClick = () => {
     if (link) {
-      window.Telegram.WebApp.openLink(link);
+      window.Telegram.WebApp.openTelegramLink(link);
     } else if (link_nav) {
       navigate(link_nav, { state: data });
     }
