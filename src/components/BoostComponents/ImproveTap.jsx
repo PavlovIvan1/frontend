@@ -17,8 +17,7 @@ export function ImproveTap({ setTapPrice }) {
   const [userBase, setUserBase] = useState(null);
   const [loading, setLoading] = useState(true);
   const [updatedTapLevel, setUpdatedTapLevel] = useState(1);
-  const [priceData, setPriceData] = useState(0);
-  const [priceDataStars, setPriceDataStars] = useState(0);
+  const [priceData, setPriceData] = useState(null);
 
   const getTapStars = async (value) => {
     try {
@@ -80,8 +79,7 @@ export function ImproveTap({ setTapPrice }) {
 
       for (const item of result) {
         if (item.ticker && item.ticker === 'update_tap') {
-          setPriceData(item.coins);
-          setPriceDataStars(item.stars)
+          setPriceData(item);
           setTapPrice(item.coins);
           return item;
         }
@@ -135,8 +133,8 @@ export function ImproveTap({ setTapPrice }) {
       </div>
       <BasicModal
         text={'Buy'}
-        textCoins={`${priceData} Ozzo 🪙`}
-        textStars={`${priceDataStars} Stars`}
+        textCoins={`${priceData.coins} Ozzo 🪙`}
+        textStars={`${priceData.stars} Stars`}
         onClickCoins={() => {
           getPrice();
           fetchUpdTap(1);

@@ -17,8 +17,6 @@ export function ImproveEnergy({ setEnergyPrice }) {
   const [loading, setLoading] = useState(true);
   const [updatedTapLevel, setUpdatedTapLevel] = useState(100);
   const [priceData, setPriceData] = useState(0);
-  const [priceDataStars, setPriceDataStars] = useState(0);
-  const [isImprove, setIsImprove] = useState(false);
 
   const getEnStars = async (value) => {
     try {
@@ -80,9 +78,8 @@ export function ImproveEnergy({ setEnergyPrice }) {
 
       for (const item of result) {
         if (item.ticker && item.ticker === 'update_energy') {
-          setPriceData(item.coins_per_energy * 100);
-          setPriceDataStars(item.stars)
-          setEnergyPrice(item.coins_per_energy * 100);
+          setPriceData(item);
+          setEnergyPrice(item.coins_per_energy * 1000);
           return item;
         }
       }
@@ -135,8 +132,8 @@ export function ImproveEnergy({ setEnergyPrice }) {
       </div>
       <BasicModal
         text={'Buy'}
-        textCoins={`${priceData} Ozzo 🪙`}
-        textStars={`${priceDataStars} Stars`}
+        textCoins={`${priceData.coins * 1000} Ozzo 🪙`}
+        textStars={`${priceData.stars} Stars`}
         onClickCoins={() => {
           getPrice();
           fetchUpdEn(500);
