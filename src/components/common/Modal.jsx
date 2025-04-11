@@ -55,7 +55,20 @@ export function BasicModal({
       >
         {text}
       </button>
-      <Modal open={open} onClose={handleClose}>
+      <Modal 
+        open={open} 
+        onClose={handleClose}
+        closeAfterTransition
+        slot={Backdrop}
+        slotProps={{
+          timeout: 500,
+          style: {
+            backgroundColor: 'rgba(0, 0, 0, 0.8)', // Затемнение
+            backdropFilter: 'blur(4px)', // Размытие
+            WebkitBackdropFilter: 'blur(4px)', // Для Safari
+          }
+        }}
+      >
         <div style={style}>
           <button
             className="button-hover-s button-gradient"
