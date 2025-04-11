@@ -45,6 +45,7 @@ export function Skins({ title, description }) {
             title={`Tap level - ${item.tap}`}
             buy={true}
             skinId={item.id}
+            stars={item.stars}
           />
         ))
       ) : (

@@ -38,6 +38,7 @@ export function Obj({
   skinId,
   select,
   skinName,
+  stars
 }) {
   const navigate = useNavigate();
   const [paymentData, setPaymentData] = useState(null);
@@ -167,7 +168,7 @@ export function Obj({
           <BasicModal
             text={'Buy'}
             textCoins={'Buy'}
-            textStars={'Buy'}
+            textStars={`${stars} Stars`}
             ifOzzoPaid={false}
             onClickCoins={() => {
               buySkin(skinId);
