@@ -28,6 +28,7 @@ export function BasicModal({
   priceCoins,
   width,
   customBtnStyle,
+  isOzzoPaid,
 }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -75,25 +76,27 @@ export function BasicModal({
           >
             {textStars} <FaStar fill={'rgb(250, 197, 70)'} />
           </button>
-          <button
-            className="button-hover-s button-gradient"
-            onClick={onClickCoins}
-            style={{
-              color: 'black',
-              border: 'none',
-              borderRadius: '.75rem',
-              fontWeight: '590',
-              fontSize: '17px',
-              width: '100%',
-              minHeight: '50px',
-              justifyContent: 'center',
-              alignItems: 'center',
-              display: 'flex',
-              letterSpacing: '1.5px',
-            }}
-          >
-            {textCoins}
-          </button>
+          {isOzzoPaid && (
+            <button
+              className="button-hover-s button-gradient"
+              onClick={onClickCoins}
+              style={{
+                color: 'black',
+                border: 'none',
+                borderRadius: '.75rem',
+                fontWeight: '590',
+                fontSize: '17px',
+                width: '100%',
+                minHeight: '50px',
+                justifyContent: 'center',
+                alignItems: 'center',
+                display: 'flex',
+                letterSpacing: '1.5px',
+              }}
+            >
+              {textCoins}
+            </button>
+          )}
         </div>
       </Modal>
     </div>

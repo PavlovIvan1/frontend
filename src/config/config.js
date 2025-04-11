@@ -1,2 +1,2 @@
-export const API_URL = 'https://swydk.online/api';
-export const URL = 'https://swydk.online';
+export const API_URL = 'https://ozzo.space/api';
+export const URL = 'https://ozzo.space';

@@ -168,6 +168,7 @@ export function Obj({
             text={'Buy'}
             textCoins={'Buy'}
             textStars={'Buy'}
+            ifOzzoPaid={false}
             onClickCoins={() => {
               buySkin(skinId);
             }}
