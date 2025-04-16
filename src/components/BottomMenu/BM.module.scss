@@ -160,10 +160,10 @@
   z-index: 2;
   color: white;
   text-shadow:
-  -0.6px -0.6px 0 black,  
-  0.6px -0.6px 0 black,
-  -0.6px 0.6px 0 black,
-  0.6px 0.6px 0 black;
+    -0.6px -0.6px 0 black,
+    0.6px -0.6px 0 black,
+    -0.6px 0.6px 0 black,
+    0.6px 0.6px 0 black;
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -174,10 +174,9 @@
 .iconWithStroke {
   fill: white;
   stroke: black;
-  stroke-width: 0.6px; 
-  stroke-linejoin: round; 
+  stroke-width: 0.6px;
+  stroke-linejoin: round;
 }
-
 
 .menuOptions {
   display: flex;

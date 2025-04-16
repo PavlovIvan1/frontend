@@ -1,14 +1,14 @@
-import { AutoBot } from '../../components/BoostComponents/AutoBot.jsx'
-import { ImproveTap } from '../../components/BoostComponents/ImproveTap.jsx'
-import { Skins } from '../../components/BoostComponents/Skins.jsx'
-import { SkinsPur } from '../../components/BoostComponents/SkinsPur.jsx'
+import { AutoBot } from '../../components/BoostComponents/AutoBot.jsx';
+import { ImproveTap } from '../../components/BoostComponents/ImproveTap.jsx';
+import { Skins } from '../../components/BoostComponents/Skins.jsx';
+import { SkinsPur } from '../../components/BoostComponents/SkinsPur.jsx';
 
-import 'sweetalert2/src/sweetalert2.scss'
-import { ImproveEnergy } from '../../components/BoostComponents/ImproveEnergy.jsx'
-import { BottomMenuWithoutEnergy } from '../../components/BottomMenu/BM_wit_energy.jsx'
+import 'sweetalert2/src/sweetalert2.scss';
+import { ImproveEnergy } from '../../components/BoostComponents/ImproveEnergy.jsx';
+import { BottomMenuWithoutEnergy } from '../../components/BottomMenu/BM_wit_energy.jsx';
 
-import { useState } from 'react'
-import styles from './boost.module.scss'
+import { useState } from 'react';
+import styles from './boost.module.scss';
 
 export function Boost() {
   const [priceData, setPriceData] = useState({

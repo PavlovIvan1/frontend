@@ -34,16 +34,6 @@ export function CompanyTasks({
   return (
     <>
       <div className={styles.company} onClick={navigateToTasks}>
-        <img
-          src={company_banner}
-          alt=""
-          style={{
-            width: '100%',
-            borderRadius: '20px',
-            height: '200px',
-            objectFit: 'cover',
-          }}
-        />
         <div className={styles.company__uppanel}>
           <div className={styles.company__name}>
             <img src={company_logo} alt="" />

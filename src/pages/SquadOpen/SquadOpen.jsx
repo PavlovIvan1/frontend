@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router'
-import 'sweetalert2/src/sweetalert2.scss'
-import { BasicModal } from '../../components/common/Modal.jsx'
-import { API_URL } from '../../config/config.js'
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router';
+import 'sweetalert2/src/sweetalert2.scss';
+import { BasicModal } from '../../components/common/Modal.jsx';
+import { API_URL } from '../../config/config.js';
 import {
   fetchBoost2Data,
   fetchBoostData,
   fetchCheckforStars,
   fetchGetPrice,
   fetchLeaveSquad,
-} from '../../services/requests.js'
-import { showErrorToast, showSuccessToast } from '../../utils/toastUtils.js'
-import styles from '../Saquads/Squads.module.scss'
+} from '../../services/requests.js';
+import { showErrorToast, showSuccessToast } from '../../utils/toastUtils.js';
+import styles from '../Saquads/Squads.module.scss';
 
 export function Pay() {
   const [paymentData, setPaymentData] = useState(null);
@@ -215,9 +215,13 @@ export function SquadOpen() {
         <div>
           <img src={data.photo} alt="" className="person" />
           <h3>{data.name}</h3>
-          <span style={{ fontWeight: '700', color: 'white' }}>{data.members_count} joiners</span>
+          <span style={{ fontWeight: '700', color: 'white' }}>
+            {data.members_count} joiners
+          </span>
           <br />
-          <span style={{ fontWeight: '700', color: 'white' }}>{data.position} position</span>
+          <span style={{ fontWeight: '700', color: 'white' }}>
+            {data.position} position
+          </span>
           <br />
           <span
             style={{ color: 'var(--tg-theme-link-color)', fontSize: '15px' }}
@@ -238,7 +242,11 @@ export function SquadOpen() {
           priceStars={priceData.stars}
           width={{ width: '100%' }}
         />
-        <button className={styles.button_gradient} onClick={joinSquad} style={{marginBottom: '10px'}}>
+        <button
+          className={styles.button_gradient}
+          onClick={joinSquad}
+          style={{ marginBottom: '10px' }}
+        >
           Join
         </button>
       </div>

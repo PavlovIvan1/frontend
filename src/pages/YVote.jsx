@@ -1,6 +1,6 @@
-import { BottomMenuWithoutEnergy } from '../components/BottomMenu/BM_wit_energy.jsx'
-import { Title } from '../components/common/Title.jsx'
-import SwC from '../components/VoteComponents/swipe_cards.jsx'
+import { BottomMenuWithoutEnergy } from '../components/BottomMenu/BM_wit_energy.jsx';
+import { Title } from '../components/common/Title.jsx';
+import SwC from '../components/VoteComponents/swipe_cards.jsx';
 
 export function YVote() {
   return (

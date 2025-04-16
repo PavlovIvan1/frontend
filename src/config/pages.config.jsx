@@ -1,19 +1,19 @@
-import { createBrowserRouter } from 'react-router-dom'
-import { App } from '../App'
-import { Loading } from '../Loading'
-import { Boost } from '../pages/Boost/Boost'
-import { Earn } from '../pages/Earn/Earn'
-import { EarnCoTaskComplited } from '../pages/EarnCoTasks/EarnCoTaskComplited'
-import { EarnVoFin } from '../pages/EarnFineshed/EarnFinished'
-import { Frens } from '../pages/Frens/Frens'
-import { NotVote } from '../pages/NotVote'
-import { CreateSquad } from '../pages/Saquads/CreateSquad'
-import { Squads } from '../pages/Saquads/Squads'
-import { SquadOpen } from '../pages/SquadOpen/SquadOpen'
-import { SquadOpenInSquad } from '../pages/SquadOpen/SquadOpenInSquad'
-import { Stats } from '../pages/Stats/Stats'
-import { YVote } from '../pages/YVote'
-import { PlayOnMobile } from '../PlayOnMobile'
+import { createBrowserRouter } from 'react-router-dom';
+import { App } from '../App';
+import { Loading } from '../Loading';
+import { Boost } from '../pages/Boost/Boost';
+import { Earn } from '../pages/Earn/Earn';
+import { EarnCoTaskComplited } from '../pages/EarnCoTasks/EarnCoTaskComplited';
+import { EarnVoFin } from '../pages/EarnFineshed/EarnFinished';
+import { Frens } from '../pages/Frens/Frens';
+import { NotVote } from '../pages/NotVote';
+import { CreateSquad } from '../pages/Saquads/CreateSquad';
+import { Squads } from '../pages/Saquads/Squads';
+import { SquadOpen } from '../pages/SquadOpen/SquadOpen';
+import { SquadOpenInSquad } from '../pages/SquadOpen/SquadOpenInSquad';
+import { Stats } from '../pages/Stats/Stats';
+import { YVote } from '../pages/YVote';
+import { PlayOnMobile } from '../PlayOnMobile';
 
 export const Pages = [
   {

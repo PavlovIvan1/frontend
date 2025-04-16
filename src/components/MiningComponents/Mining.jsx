@@ -1,15 +1,19 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react';
 import {
   fetchBaseUserData,
   fetchUserAddCoins,
-} from '../../services/requests.js'
-import { useStore } from '../../store/useStore.js'
-import styles from './Mining.module.scss'
+} from '../../services/requests.js';
+import { useStore } from '../../store/useStore.js';
+import styles from './Mining.module.scss';
 
-import 'sweetalert2/src/sweetalert2.scss'
-import { URL } from '../../config/config.js'
-import { Loading } from '../../Loading.jsx'
-import { showInfoToast } from '../../utils/toastUtils.js'
+import 'sweetalert2/src/sweetalert2.scss';
+import { URL } from '../../config/config.js';
+import { Loading } from '../../Loading.jsx';
+import { showInfoToast } from '../../utils/toastUtils.js';
+
+// Константы для настройки буферизации
+const TAP_BATCH_SIZE = 30; // Количество тапов в одном пакете
+const BATCH_SEND_DELAY = 1000; // Задержка перед отправкой неполного пакета (мс)
 
 export function Mining({ setIsClick }) {
   const [points, setPoints] = useState(0);
@@ -25,6 +29,24 @@ export function Mining({ setIsClick }) {
   const amount = useStore((state) => state.amount);
 
   const lastTapTimes = useRef({});
+  const tapBuffer = useRef([]); // Буфер для накопления тапов
+  const batchTimeout = useRef(null); // Таймер для отправки неполного пакета
+
+  // Функция для отправки накопленных тапов
+  const sendBufferedTaps = async () => {
+    if (tapBuffer.current.length === 0) return;
+
+    const tapsToSend = [...tapBuffer.current];
+    tapBuffer.current = []; // Очищаем буфер
+
+    try {
+      const totalAmount = tapsToSend.reduce((sum, tap) => sum + tap.amount, 0);
+      await fetchUserAddCoins(totalAmount);
+    } catch (err) {
+      console.error('Ошибка при отправке тапов:', err);
+      // В случае ошибки можно вернуть тапы в буфер или обработать иначе
+    }
+  };
 
   const handleClick = (clientX, clientY, touchId) => {
     const now = Date.now();
@@ -48,17 +70,26 @@ export function Mining({ setIsClick }) {
         left: `${clientX + 10}px`,
         amount,
       };
+
+      // Добавляем визуальный тап
       setTaps((prev) => [...prev, newTap]);
 
-      const addCoinsToB = async () => {
-        try {
-          await fetchUserAddCoins(amount);
-        } catch (err) {
-          console.error(err);
-        }
-      };
+      // Добавляем тап в буфер
+      tapBuffer.current.push(newTap);
 
-      addCoinsToB();
+      // Если буфер достиг размера пакета - отправляем
+      if (tapBuffer.current.length >= TAP_BATCH_SIZE) {
+        sendBufferedTaps();
+        clearTimeout(batchTimeout.current);
+        batchTimeout.current = null;
+      }
+      // Иначе запускаем таймер для отправки неполного пакета
+      else if (!batchTimeout.current) {
+        batchTimeout.current = setTimeout(() => {
+          sendBufferedTaps();
+          batchTimeout.current = null;
+        }, BATCH_SEND_DELAY);
+      }
 
       setTimeout(() => {
         setTaps((prev) => prev.filter((tap) => tap.id !== newTap.id));
@@ -74,6 +105,19 @@ export function Mining({ setIsClick }) {
       handleClick(touch.clientX, touch.clientY, touch.identifier);
     });
   };
+
+  // Очищаем таймер при размонтировании компонента
+  useEffect(() => {
+    return () => {
+      if (batchTimeout.current) {
+        clearTimeout(batchTimeout.current);
+        // Перед размонтированием отправляем оставшиеся тапы
+        if (tapBuffer.current.length > 0) {
+          sendBufferedTaps();
+        }
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const getBaseUserData = async () => {

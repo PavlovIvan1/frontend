@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 import {
   fetchActivateAutoBot,
   fetchClaimAutoBot,
   fetchGetPrice,
-} from '../../services/requests'
-import styles from './Boost.module.scss'
+} from '../../services/requests';
+import styles from './Boost.module.scss';
 
-import 'sweetalert2/src/sweetalert2.scss'
-import { showInfoToast, showSuccessToast } from '../../utils/toastUtils'
+import 'sweetalert2/src/sweetalert2.scss';
+import { showInfoToast, showSuccessToast } from '../../utils/toastUtils';
 
 export function AutoBot() {
   const [isAutoBotBought, setIsAutoBotBought] = useState(() => {

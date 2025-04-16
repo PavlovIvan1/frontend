@@ -1,6 +1,6 @@
-import Modal from '@mui/material/Modal'
-import * as React from 'react'
-import { FaStar } from 'react-icons/fa6'
+import Modal from '@mui/material/Modal';
+import * as React from 'react';
+import { FaStar } from 'react-icons/fa6';
 
 const style = {
   position: 'absolute',
@@ -55,20 +55,7 @@ export function BasicModal({
       >
         {text}
       </button>
-      <Modal 
-        open={open} 
-        onClose={handleClose}
-        closeAfterTransition
-        slot={Backdrop}
-        slotProps={{
-          timeout: 500,
-          style: {
-            backgroundColor: 'rgba(0, 0, 0, 0.8)', // Затемнение
-            backdropFilter: 'blur(4px)', // Размытие
-            WebkitBackdropFilter: 'blur(4px)', // Для Safari
-          }
-        }}
-      >
+      <Modal open={open} onClose={handleClose}>
         <div style={style}>
           <button
             className="button-hover-s button-gradient"

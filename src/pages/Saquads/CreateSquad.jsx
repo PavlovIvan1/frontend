@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { Title } from '../../components/common/Title.jsx'
-import { fetchCreateSquad } from '../../services/requests.js'
+import { useState } from 'react';
+import { Title } from '../../components/common/Title.jsx';
+import { fetchCreateSquad } from '../../services/requests.js';
 
 export function CreateSquad() {
   const [channelName, setChannelName] = useState('');
@@ -20,16 +20,21 @@ export function CreateSquad() {
     <>
       <div className="Page CreateSquad">
         <Title title={'Create squad'} />
-        <input 
+        <input
           type="text"
           value={channelName}
           onChange={(e) => setChannelName(e.target.value)}
           style={styles.input}
           placeholder="Enter channel name..."
         />
-        <div 
-          className='button-gradient' 
-          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}} 
+        <div
+          className="button-gradient"
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'center',
+          }}
           onClick={createSquad}
         >
           Create
@@ -44,11 +49,11 @@ const styles = {
     width: '100%',
     padding: '10px',
     boxSizing: 'border-box',
-    borderRadius: '15px',    
+    borderRadius: '15px',
     border: '1px solid #555',
-    backgroundColor: '#444', 
-    color: '#fff',           
-    outline: 'none',         
+    backgroundColor: '#444',
+    color: '#fff',
+    outline: 'none',
     fontSize: '16px',
   },
 };

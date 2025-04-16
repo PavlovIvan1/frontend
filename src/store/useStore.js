@@ -14,6 +14,9 @@ export const useStore = create((set) => ({
   increaseCurrentEnergy: (additionalEnergy) =>
     set((state) => ({ cur_energy: state.cur_energy + additionalEnergy })),
 
+  decreaseCurrentEnergy: (am) =>
+    set((state) => ({ cur_energy: Math.max(state.cur_energy - am) })),
+
   resetScore: () => set({ score: 0 }),
 
   updateScoreFromBackend: async () => {

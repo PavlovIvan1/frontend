@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
-import { BottomMenuWithoutEnergy } from '../../components/BottomMenu/BM_wit_energy.jsx'
-import { Obj } from '../../components/ObjComponents/Obj.jsx'
-import { Title } from '../../components/common/Title.jsx'
-import { fetchSocNetData, fetchStatData } from '../../services/requests.js'
-import styles from '../Frens/frens.module.scss'
+import { useEffect, useState } from 'react';
+import { BottomMenuWithoutEnergy } from '../../components/BottomMenu/BM_wit_energy.jsx';
+import { Obj } from '../../components/ObjComponents/Obj.jsx';
+import { Title } from '../../components/common/Title.jsx';
+import { fetchSocNetData, fetchStatData } from '../../services/requests.js';
+import styles from '../Frens/frens.module.scss';
 
-import { Loading } from '../../Loading.jsx'
+import { Loading } from '../../Loading.jsx';
 
 const getImagePath = (app) => {
   switch (app.toLowerCase()) {
@@ -69,7 +69,9 @@ export function Stats() {
         <div className={styles.Fr_stat}>
           <div className={styles.Fr_rewards}>
             <span className={styles.big}>
-              {dataTotal.toLocaleString('en-US') ? dataTotal.total_coins.toLocaleString('en-US') : 0}
+              {dataTotal.toLocaleString('en-US')
+                ? dataTotal.total_coins.toLocaleString('en-US')
+                : 0}
             </span>
             <span className={styles.sm}>/ coins</span>
           </div>
@@ -78,7 +80,9 @@ export function Stats() {
         <div className={styles.Fr_stat}>
           <div className={styles.Fr_rewards}>
             <span className={styles.big}>
-              {dataTotal.toLocaleString('en-US') ? dataTotal.total_users.toLocaleString('en-US') : 0}
+              {dataTotal.toLocaleString('en-US')
+                ? dataTotal.total_users.toLocaleString('en-US')
+                : 0}
             </span>
             <span className={styles.sm}>/ users</span>
           </div>

@@ -1,5 +1,5 @@
-import styles from '../pages/Frens/frens.module.scss'
-import repsty from './reapblocks.module.css'
+import styles from '../pages/Frens/frens.module.scss';
+import repsty from './reapblocks.module.css';
 
 export function VoteTasks({ title }) {
   return (

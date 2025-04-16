@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import { Loading } from '../../Loading.jsx'
+import React, { useEffect, useState } from 'react';
+import { Loading } from '../../Loading.jsx';
 import {
   fetchCheckEnergyStars,
   fetchGetPrice,
   fetchImproveEnergy,
   fetchUpdateEnergyStars,
   fetychGetTaP,
-} from '../../services/requests.js'
-import styles from './Boost.module.scss'
+} from '../../services/requests.js';
+import styles from './Boost.module.scss';
 
-import 'sweetalert2/src/sweetalert2.scss'
-import { showSuccessToast } from '../../utils/toastUtils.js'
-import { BasicModal } from '../common/Modal.jsx'
+import 'sweetalert2/src/sweetalert2.scss';
+import { showSuccessToast } from '../../utils/toastUtils.js';
+import { BasicModal } from '../common/Modal.jsx';
 
 export function ImproveEnergy({ setEnergyPrice }) {
   const [loading, setLoading] = useState(true);
   const [updatedTapLevel, setUpdatedTapLevel] = useState(100);
   const [priceData, setPriceData] = useState(0);
 
-  
   const getEnStars = async (value) => {
     try {
       const result = await fetchUpdateEnergyStars(value);
@@ -133,8 +132,9 @@ export function ImproveEnergy({ setEnergyPrice }) {
       </div>
       <BasicModal
         text={'Buy'}
-        textCoins={`${priceData.coins * 1000} Ozzo 🪙`}
-        textStars={`${priceData.stars} Stars`}
+        isOzzoPaid={true}
+        textCoins={`${priceData.coins_per_energy} Ozzo 🪙`}
+        textStars={`Stars`}
         onClickCoins={() => {
           getPrice();
           fetchUpdEn(500);

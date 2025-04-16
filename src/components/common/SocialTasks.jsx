@@ -1,4 +1,4 @@
-import styles from '../pages/Frens/frens.module.scss'
+import styles from '../pages/Frens/frens.module.scss';
 
 export function SocialTasks({ description, title, img }) {
   return (

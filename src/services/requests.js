@@ -1,6 +1,6 @@
-import axios from 'axios'
-import { API_URL } from '../config/config'
-import { showErrorToast, showInfoToast } from '../utils/toastUtils'
+import axios from 'axios';
+import { API_URL } from '../config/config';
+import { showErrorToast, showInfoToast } from '../utils/toastUtils';
 
 const headers = {
   'Content-Type': 'application/json',

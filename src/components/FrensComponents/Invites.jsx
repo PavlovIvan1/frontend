@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
-import { URL } from '../../config/config.js'
-import { Loading } from '../../Loading.jsx'
-import { fetchGetRefferals } from '../../services/requests.js'
-import styles from './frens.module.scss'
+import { useEffect, useState } from 'react';
+import { URL } from '../../config/config.js';
+import { Loading } from '../../Loading.jsx';
+import { fetchGetRefferals } from '../../services/requests.js';
+import styles from './frens.module.scss';
 
 export function Invites() {
   const [loading, setLoading] = useState(true);
@@ -46,7 +46,13 @@ export function Invites() {
               />
               <div className={styles.obj_text}>
                 <h4>{referral.tg_username}</h4>
-                <p> <span style={{ color: 'gold', fontWeight: '600' }}>Referral balance:</span>{referral.coins}</p>
+                <p>
+                  {' '}
+                  <span style={{ color: 'gold', fontWeight: '600' }}>
+                    Referral balance:
+                  </span>
+                  {referral.coins}
+                </p>
               </div>
             </div>
           ))

@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import { Loading } from '../../Loading.jsx'
+import React, { useEffect, useState } from 'react';
+import { Loading } from '../../Loading.jsx';
 import {
   fetchBaseUserData,
   fetchCheckTapStars,
   fetchGetPrice,
   fetchUpdateTap,
   fetchUpdateTapStars,
-} from '../../services/requests.js'
-import styles from './Boost.module.scss'
+} from '../../services/requests.js';
+import styles from './Boost.module.scss';
 
-import 'sweetalert2/src/sweetalert2.scss'
-import { showSuccessToast } from '../../utils/toastUtils.js'
-import { BasicModal } from '../common/Modal.jsx'
+import 'sweetalert2/src/sweetalert2.scss';
+import { showSuccessToast } from '../../utils/toastUtils.js';
+import { BasicModal } from '../common/Modal.jsx';
 
 export function ImproveTap({ setTapPrice }) {
   const [userBase, setUserBase] = useState(null);
@@ -80,6 +80,8 @@ export function ImproveTap({ setTapPrice }) {
       for (const item of result) {
         if (item.ticker && item.ticker === 'update_tap') {
           setPriceData(item);
+          console.log(priceData);
+          console.log(item);
           setTapPrice(item.coins);
           return item;
         }
@@ -134,7 +136,8 @@ export function ImproveTap({ setTapPrice }) {
       <BasicModal
         text={'Buy'}
         textCoins={`${priceData.coins} Ozzo 🪙`}
-        textStars={`${priceData.stars} Stars`}
+        textStars={`Stars`}
+        isOzzoPaid={true}
         onClickCoins={() => {
           getPrice();
           fetchUpdTap(1);

@@ -1,9 +1,9 @@
-import { useNavigate } from 'react-router-dom'
-import styles from './Obj.module.scss'
+import { useNavigate } from 'react-router-dom';
+import styles from './Obj.module.scss';
 
-import 'sweetalert2/src/sweetalert2.scss'
-import { fetchMarkAsDone } from '../../services/requests'
-import { showSuccessToast } from '../../utils/toastUtils'
+import 'sweetalert2/src/sweetalert2.scss';
+import { fetchMarkAsDone } from '../../services/requests';
+import { showSuccessToast } from '../../utils/toastUtils';
 
 export function ObjTask({
   img,
@@ -15,12 +15,17 @@ export function ObjTask({
   done,
   task_id,
   onComplete,
+  isTelegram
 }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
     if (link) {
-      window.Telegram.WebApp.openTelegramLink(link);
+      if (isTelegram) {
+        window.Telegram.WebApp.openTelegramLink(link);
+      } else {
+        window.Telegram.WebApp.openLink(link);
+      }
     } else if (link_nav) {
       navigate(link_nav, { state: data });
     }
@@ -62,9 +67,9 @@ export function ObjTask({
           height: '30px',
           borderRadius: '10px',
           textAlign: 'center',
-          display: 'flex', 
+          display: 'flex',
           justifyContent: 'center',
-          alignItems: 'center'
+          alignItems: 'center',
         }}
       >
         Check

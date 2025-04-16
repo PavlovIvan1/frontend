@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
-import { BsFillPeopleFill } from 'react-icons/bs'
-import { FaChevronRight } from 'react-icons/fa'
-import { useNavigate } from 'react-router'
-import './App.scss'
-import { BottomMenu } from './components/BottomMenu/BM'
-import { Mining } from './components/MiningComponents/Mining.jsx'
+import { useEffect, useState } from 'react';
+import { BsFillPeopleFill } from 'react-icons/bs';
+import { FaChevronRight } from 'react-icons/fa';
+import { useNavigate } from 'react-router';
+import './App.scss';
+import { BottomMenu } from './components/BottomMenu/BM';
+import { Mining } from './components/MiningComponents/Mining.jsx';
 import {
   fetchBaseUserData,
   fetchClaimAutoBot,
@@ -12,18 +12,18 @@ import {
   fetchLigaData,
   fetchUserAddCoins,
   fetychGetTaP,
-} from './services/requests.js'
-import { useStore } from './store/useStore.js'
+} from './services/requests.js';
+import { useStore } from './store/useStore.js';
 
-import Swal from 'sweetalert2'
-import 'sweetalert2/src/sweetalert2.scss'
+import Swal from 'sweetalert2';
+import 'sweetalert2/src/sweetalert2.scss';
 
-import 'reactjs-popup/dist/index.css'
+import 'reactjs-popup/dist/index.css';
 
-import { Loading } from './Loading.jsx'
-import { showInfoToast, showSuccessToast } from './utils/toastUtils.js'
+import { Loading } from './Loading.jsx';
+import { showInfoToast, showSuccessToast } from './utils/toastUtils.js';
 
-import { isMobile } from 'react-device-detect'
+import { isMobile } from 'react-device-detect';
 
 export function Squad({
   name,
@@ -133,7 +133,7 @@ export function App() {
     }
 
     if (!isMobile) {
-      navigate('/mobapp')
+       navigate('/mobapp')
     }
 
     const addRefcoins = async () => {
@@ -144,7 +144,7 @@ export function App() {
       } finally {
         setLoadingSkin(false);
       }
-    }
+    };
 
     const getData = async () => {
       try {

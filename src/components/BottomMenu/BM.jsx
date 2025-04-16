@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
-import { HiLightningBolt } from 'react-icons/hi'
-import { useLocation, useNavigate } from 'react-router'
-import { Loading } from '../../Loading'
-import { fetychGetTaP } from '../../services/requests'
-import { useStore } from '../../store/useStore'
-import styles from './BM.module.scss'
+import { useEffect, useState, useCallback } from 'react';
+import { HiLightningBolt } from 'react-icons/hi';
+import { useLocation, useNavigate } from 'react-router';
+import { Loading } from '../../Loading';
+import { fetychGetTaP } from '../../services/requests';
+import { useStore } from '../../store/useStore';
+import styles from './BM.module.scss';
 
 export function BottomMenu({ isClick, setIsClick }) {
   const navigate = useNavigate();
@@ -24,6 +24,9 @@ export function BottomMenu({ isClick, setIsClick }) {
   const amount_from_z = useStore((state) => state.amount);
   const setCurEnergy = useStore((state) => state.setCurrentEnergy);
   const { increaseCurrentEnergy } = useStore();
+  const decreaseCurrentEnergy = useStore(
+    (state) => state.decreaseCurrentEnergy
+  );
 
   const [isFirstRender, setIsFirstRender] = useState(true);
 
@@ -84,7 +87,7 @@ export function BottomMenu({ isClick, setIsClick }) {
   percentage = (Math.floor(curEnergy) / getTap.max_energy) * 100;
 
   if (isClick) {
-    getTapFromB();
+    decreaseCurrentEnergy(amount_from_z);
     setIsClick(false);
   }
 
@@ -94,10 +97,13 @@ export function BottomMenu({ isClick, setIsClick }) {
         <div className={styles.energyBar}>
           <div
             className={styles.energyFill}
-            style={{ width: `${percentage}%` }}
+            style={{ width: `${percentage}%`, transition: 'width 0.5s ease' }}
           ></div>
           <span className={styles.energyText}>
-          <HiLightningBolt className={styles.iconWithStroke} style={{ fontSize: '17px' }} />
+            <HiLightningBolt
+              className={styles.iconWithStroke}
+              style={{ fontSize: '17px' }}
+            />
             {isFirstRender
               ? Number(getTap.current_energy).toFixed(0)
               : Number(curEnergy).toFixed(0)}
