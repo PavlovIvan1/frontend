@@ -1,5 +1,5 @@
-import { useLocation, useNavigate } from 'react-router'
-import styles from './Company.module.scss'
+import { useLocation, useNavigate } from 'react-router';
+import styles from './Company.module.scss';
 
 export function CompanyTasks({
   company_name,

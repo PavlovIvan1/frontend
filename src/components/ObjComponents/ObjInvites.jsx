@@ -5,33 +5,18 @@ import 'sweetalert2/src/sweetalert2.scss';
 import { fetchMarkAsDone } from '../../services/requests';
 import { showSuccessToast } from '../../utils/toastUtils';
 
-export function ObjTask({
+export function ObjInvites({
   img,
   title,
   about,
-  link,
-  link_nav,
   data,
   done,
   task_id,
   onComplete,
-  isTelegram,
 }) {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    if (link) {
-      if (isTelegram) {
-        window.Telegram.WebApp.openTelegramLink(link);
-      } else {
-        window.Telegram.WebApp.openLink(link);
-      }
-    } else if (link_nav) {
-      navigate(link_nav, { state: data });
-    }
-  };
-
-  const handleClaimClick = async () => {
+  const handleClick = async () => {
     try {
       const result = await fetchMarkAsDone(task_id);
       onComplete();

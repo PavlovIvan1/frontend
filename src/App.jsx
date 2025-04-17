@@ -133,7 +133,7 @@ export function App() {
     }
 
     if (!isMobile) {
-       navigate('/mobapp')
+      navigate('/mobapp');
     }
 
     const addRefcoins = async () => {

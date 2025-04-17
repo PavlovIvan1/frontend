@@ -1,103 +1,8 @@
-// import { useEffect, useState } from 'react'
-// import { useLocation } from 'react-router'
-// import { BottomMenuWithoutEnergy } from '../../components/BottomMenu/BM_wit_energy.jsx'
-// import { Title } from '../../components/common/Title.jsx'
-// import { ObjTask } from '../../components/ObjComponents/ObjTask.jsx'
-// import { Loading } from '../../Loading.jsx'
-// import { fetchGetEarn } from '../../services/requests.js'
-
-// const getImagePath = (app) => {
-//   switch (app.toLowerCase()) {
-//     case 'telegram':
-//       return '/telegram.png';
-//     case 'x':
-//       return '/x.png';
-//     default:
-//       return '/instagram.png';
-//   }
-// };
-
-// export function Earn() {
-//   const location = useLocation();
-//   const info_company = location.state;
-//   const [tasks, setTasks] = useState([]);
-//   const [loading, setLoading] = useState(true);
-
-//   const fetchTasks = async () => {
-//     try {
-//       const result = await fetchGetEarn();
-//       setTasks(result[0].tasks || []);
-//     } catch (err) {
-//       console.error(err);
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   // const fetchTasks = async () => {
-//   //   const result = await fetchGetEarn();
-//   //   const selectedCompanyTasks = result.find(company => company.id_comp === info_company.company_id);
-  
-//   //   if (selectedCompanyTasks) {
-//   //     setTasks(selectedCompanyTasks.tasks || []);
-//   //   }
-//   // };
-
-//   useEffect(() => {
-//     fetchTasks();
-//   }, []);
-
-//   const handleTaskCompletion = async () => {
-//     fetchTasks();
-//   };
-
-//   if (loading) {
-//     return <Loading />;
-//   }
-
-//   return (
-//     <>
-//       {!loading ? (
-//         <>
-//           <div className="Earn">
-//             <Title
-//               title={info_company.company_name}
-//               description={info_company.company_info}
-//             />
-//             <div className="company_tasks">
-//               {tasks.filter((item) => !item.isDone).length > 0 ? (
-//                 tasks
-//                   .filter((item) => !item.isDone)
-//                   .map((item, index) => (
-//                     <ObjTask
-//                       title={item.name}
-//                       key={index}
-//                       img={getImagePath(item.name_social)}
-//                       link={item.link}
-//                       done={item.isDone}
-//                       task_id={item.id.toString()}
-//                       onComplete={handleTaskCompletion}
-//                     />
-//                   ))
-//               ) : (
-//                 <div>No tasks available</div>
-//               )}
-//             </div>
-//           </div>
-//           <BottomMenuWithoutEnergy />
-//         </>
-//       ) : (
-//         <Loading />
-//       )}
-//     </>
-//   );
-// }
-
-
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
 import { BottomMenuWithoutEnergy } from '../../components/BottomMenu/BM_wit_energy.jsx'
 import { Title } from '../../components/common/Title.jsx'
+import { ObjInvites } from '../../components/ObjComponents/ObjInvites.jsx'
 import { ObjTask } from '../../components/ObjComponents/ObjTask.jsx'
 import { Loading } from '../../Loading.jsx'
 
@@ -107,6 +12,8 @@ const getImagePath = (app) => {
       return '/telegram.png';
     case 'x':
       return '/x.png';
+    case 'invite':
+      return <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round-icon lucide-users-round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>
     default:
       return '/instagram.png';
   }
@@ -114,7 +21,7 @@ const getImagePath = (app) => {
 
 export function Earn() {
   const location = useLocation();
-  const info_company = location.state;  // Используем переданные данные
+  const info_company = location.state; // Используем переданные данные
   const [tasks, setTasks] = useState(info_company.company_tasks || []); // Инициализируем состояние задач
   const [loading, setLoading] = useState(false); // Можно установить значение false сразу, если нет первоначальной загрузки
 
@@ -125,7 +32,7 @@ export function Earn() {
 
   const handleTaskCompletion = async () => {
     // Обновите задачи по необходимости, например, если задача была выполнена
-    setTasks((prevTasks) => prevTasks.filter(task => !task.isDone)); // Обновите состояние, если нужно
+    setTasks((prevTasks) => prevTasks.filter((task) => !task.isDone)); // Обновите состояние, если нужно
   };
 
   if (loading) {
@@ -141,7 +48,7 @@ export function Earn() {
         />
 
         <img
-          src={company_banner}
+          src={info_company.company_banner}
           alt=""
           style={{
             width: '100%',
@@ -155,18 +62,29 @@ export function Earn() {
           {tasks.filter((item) => !item.isDone).length > 0 ? (
             tasks
               .filter((item) => !item.isDone)
-              .map((item, index) => (
-                <ObjTask
-                  title={item.name}
-                  key={index}
-                  img={getImagePath(item.name_social)}
-                  link={item.link}
-                  done={item.isDone}
-                  task_id={item.id.toString()}
-                  onComplete={handleTaskCompletion}
-                  isTelegram={item.name_social.toLowerCase() === 'telegram'}
-                />
-              ))
+              .map((item, index) =>
+                getImagePath(item.name_social) === 'Invite' ? (
+                  <ObjInvites
+                    title={item.name}
+                    key={index}
+                    img={getImagePath(item.name_social)}
+                    done={item.isDone}
+                    task_id={item.id.toString()}
+                    onComplete={handleTaskCompletion}
+                  />
+                ) : (
+                  <ObjTask
+                    title={item.name}
+                    key={index}
+                    img={getImagePath(item.name_social)}
+                    link={item.link}
+                    done={item.isDone}
+                    task_id={item.id.toString()}
+                    onComplete={handleTaskCompletion}
+                    isTelegram={item.name_social.toLowerCase() === 'telegram'}
+                  />
+                )
+              )
           ) : (
             <div>No tasks available</div>
           )}
@@ -176,4 +94,3 @@ export function Earn() {
     </>
   );
 }
-
